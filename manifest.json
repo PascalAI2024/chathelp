@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Chat Bot Assistant",
+  "version": "1.0",
+  "description": "Automate chat bot interactions with easy element selection",
+  "permissions": ["storage", "activeTab"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": ["js/content.js"],
+    "type": "module"
+  }],
+  "commands": {
+    "toggle-inspector": {
+      "suggested_key": {
+        "default": "Alt+Shift+B"
+      },
+      "description": "Toggle element inspector"
+    }
+  }
+}

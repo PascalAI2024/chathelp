@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chat Bot Assistant</title>
+  <style>
+    body {
+      width: 400px;
+      padding: 16px;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+    
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    
+    .preset-item {
+      display: grid;
+      grid-template-columns: 1fr 2fr auto;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    
+    input[type="text"] {
+      padding: 6px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    
+    .btn {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      background: #e0e0e0;
+      cursor: pointer;
+    }
+    
+    .btn:hover {
+      background: #d0d0d0;
+    }
+    
+    .btn.primary {
+      background: #1a73e8;
+      color: white;
+    }
+    
+    .btn.primary:hover {
+      background: #1557b0;
+    }
+    
+    .setting-item {
+      margin-bottom: 12px;
+    }
+    
+    .setting-item label {
+      display: block;
+      margin-bottom: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Chat Bot Assistant</h2>
+    
+    <div class="presets-container">
+      <h3>Response Presets</h3>
+      <div id="presetsList"></div>
+      <button id="addPreset" class="btn">Add Preset</button>
+    </div>
+    
+    <div class="settings">
+      <div class="setting-item">
+        <label>Chat Input Selector:</label>
+        <input type="text" id="inputSelector" placeholder=".chat-input">
+      </div>
+      
+      <div class="setting-item">
+        <label>Bot Message Class:</label>
+        <input type="text" id="botMessageClass" placeholder="assistant-message">
+      </div>
+      
+      <div class="setting-item">
+        <label>
+          <input type="checkbox" id="autoSubmit">
+          Auto Submit Responses
+        </label>
+      </div>
+    </div>
+    
+    <button id="save" class="btn primary">Save Settings</button>
+  </div>
+
+  <script type="module" src="js/popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chat Bot Assistant - Development</title>
+  <link rel="stylesheet" href="styles/popup.css">
+  <style>
+    /* Development-specific styles */
+    body {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    .demo-chat {
+      margin-top: 20px;
+      border: 1px solid #ddd;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    
+    .message {
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 4px;
+    }
+    
+    .assistant-message {
+      background: #f0f0f0;
+    }
+    
+    .chat-input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Chat Bot Assistant (Development Mode)</h2>
+    
+    <div class="presets-container">
+      <h3>Response Presets</h3>
+      <div id="presetsList"></div>
+      <button id="addPreset" class="btn">Add Preset</button>
+    </div>
+    
+    <div class="settings">
+      <div class="setting-item">
+        <label>Chat Input Selector:</label>
+        <input type="text" id="inputSelector" placeholder=".chat-input">
+      </div>
+      
+      <div class="setting-item">
+        <label>Bot Message Class:</label>
+        <input type="text" id="botMessageClass" placeholder="assistant-message">
+      </div>
+      
+      <div class="setting-item">
+        <label>
+          <input type="checkbox" id="autoSubmit">
+          Auto Submit Responses
+        </label>
+      </div>
+    </div>
+    
+    <button id="save" class="btn primary">Save Settings</button>
+
+    <!-- Development Testing Area -->
+    <div class="demo-chat">
+      <h3>Test Chat Interface</h3>
+      <div id="messages"></div>
+      <input type="text" class="chat-input" placeholder="Type a message...">
+      <button onclick="addMessage()" class="btn">Send</button>
+      <button onclick="addBotMessage()" class="btn">Simulate Bot Response</button>
+    </div>
+  </div>
+
+  <script type="module" src="js/popup.js"></script>
+  <script>
+    function addMessage() {
+      const input = document.querySelector('.chat-input');
+      const messages = document.getElementById('messages');
+      const div = document.createElement('div');
+      div.className = 'message';
+      div.textContent = input.value;
+      messages.appendChild(div);
+      input.value = '';
+    }
+
+    function addBotMessage() {
+      const messages = document.getElementById('messages');
+      const div = document.createElement('div');
+      div.className = 'message assistant-message';
+      div.textContent = 'This is a bot response';
+      messages.appendChild(div);
+    }
+  </script>
+</body>
+</html>
